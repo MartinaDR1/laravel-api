@@ -36,7 +36,33 @@
                 <small class="text-danger">{{ $message }}</small>
             @enderror
         </div>
-    
+
+        <div class="mb-4">
+            <div class="row">
+                <div class="col-3">
+                    <img src="{{$project->project_image}}" alt="" height="100">
+                </div>
+                <div class="col-9">
+                    <label for="project_image" class="form-label">Image</label>
+                    <input type="text" class="form-control" name="project_image" id="project_image" value="{{ old('project_image') }}">        
+                </div>
+            </div>
+        </div>
+        
+        <div class="mb-4">
+            <div class="row">
+                <div class="col-6">
+                    <label for="project_url" class="form-label">Project url</label>
+                    <input type="url" class="form-control" name="project_url" id="project_url" value="{{ old('project_url') }}">
+                </div>
+                <div class="col-6">
+                    <label for="project_source_code" class="form-label">Source code</label>
+                    <input type="url"class="form-control" name="project_source_code" id="project_source_code" value="{{ old('project_source_code') }}">
+                </div>
+            </div>
+
+        </div>
+
         <div class="mb-4">
             <label for="duration" class="form-label d-flex">Duration</label>
             <input type="number" name="duration" id="duration" value="{{ old('duration') }}">

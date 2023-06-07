@@ -8,6 +8,7 @@
 
 @include('partials.session_message')
 <div class="row">
+    
     <div class="col-6">
         <form action="{{route('admin.types.store')}}" method="post">
             @csrf
@@ -18,8 +19,8 @@
 
         </form>
     </div>
-    <div class="col-6">
 
+    <div class="col-6">
         <div class="table-responsive-md">
             <table class="table table-light">
                 <thead>
