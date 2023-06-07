@@ -7,11 +7,16 @@
         <img class="card-img-top" src="{{$project->project_image}}" alt="" height="300px">
         <div class="card-body">
             <h4 class="card-title">Title: {{$project->title}}</h4>
+            <span class="badge bg-primary">{{$project->type?->name}}</span>
             <p>Description: {{$project->description}}</p>
             <span>{{$project->duration}}</span>
             <ul>
-                <li>{{$project->project_url}}</li>
-                <li>Source code: {{$project->project_source_code}}</li>
+                <li>
+                    <a href="">{{$project->project_url}}</a>
+                </li>
+                <li>Source code: 
+                    <a href="">{{$project->project_source_code}}</a>
+                </li>
             </ul>
         </div>
         <div class="card-footer">
