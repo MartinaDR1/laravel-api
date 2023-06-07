@@ -29,6 +29,7 @@ class UpdateProjectRequest extends FormRequest
             'duration'=>'nullable',
             'start_date'=>'required|date',
             'start_date'=>'nullable|date',
+            'type_id' => ['exists:types,id']
         ];
     }
 }
