@@ -27,6 +27,23 @@
             </select>
         </div>
 
+        <div class="form-group">
+            <p>Seleziona i tag:</p>
+            @foreach ($techologies as $technology)
+            <div class="form-check @error('techologies') is-invalid @enderror">
+    
+                <label class="form-check-label">
+                    <input name="techologies[]" type="checkbox" value="{{ $technology->id }}" class="form-check-input" {{ in_array($technology->id, old('techologies', [])) ? 'checked' : '' }}>
+                    {{ $technology->name }}
+                </label>
+            </div>
+            @endforeach
+    
+            @error('techologies')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+
         <div class="mb-4">
             <label for="description" class="form-label">Description</label>
             <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" rows="3"></textarea>
