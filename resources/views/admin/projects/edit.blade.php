@@ -28,6 +28,39 @@
             </select>
         </div>
         
+        <div class="form-group">
+            <p>Seleziona le tecnologie:</p>
+            @foreach ($techologies as $technology)
+            <div class="form-check @error('technologies') is-invalid @enderror">
+                <label class="form-check-label">
+                    @if($errors->any())
+                    {{-- se ci sono degli errori di validazione
+                    signifca che bisogna recuperare i tag selezionati
+                    tramite la funzione old(),
+                    la quale restituisce un array plain contenente solo gli id --}}
+    
+                    <input name="technologies[]" type="checkbox" value="{{ $technology->id }}" class="form-check-input" {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
+    
+                    @else
+                    {{-- se non sono presenti errori di validazione
+                    significa che la pagina è appena stata aperta per la prima volta,
+                    perciò bisogna recuperare i tag dalla relazione con il post,
+                    che è una collection di oggetti di tipo Tag	--}}
+    
+                    <input name="technologies[]" type="checkbox" value="{{ $technology->id }}" class="form-check-input" {{ $project->technologies->contains($technology) ? 'checked' : '' }}>
+                    @endif
+    
+    
+                    {{ $technology->name }}
+                </label>
+    
+            </div>
+            @endforeach
+            @error('technologies')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+
         <div class="mb-4">
             <label for="description" class="form-label">Description</label>
             <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description" rows="3" value="{{ old('description') }}"></textarea>
