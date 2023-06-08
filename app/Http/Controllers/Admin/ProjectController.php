@@ -29,7 +29,8 @@ class ProjectController extends Controller
     public function create()
     {
         $types = Type::orderByDesc('id')->get();
-        return view('admin.projects.create', compact('types'));
+        $techologies=Technology::orderByDesc('id')->get();
+        return view('admin.projects.create', compact('types','techologies'));
     }
 
     /**

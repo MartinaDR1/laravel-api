@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Project extends Model
 {
     use HasFactory;
@@ -17,7 +18,7 @@ class Project extends Model
         return Str::slug($title, '-');
     }
 
-        /**
+    /**
      * Get the category that owns the Project
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -26,4 +27,15 @@ class Project extends Model
     {
         return $this->belongsTo(Type::class);
     }
+
+    /**
+     * Get the category that owns the Project
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function technologies(): BelongsToMany
+    {
+        return $this->belongsToMany(Technology::class);
+    }
+
 }
