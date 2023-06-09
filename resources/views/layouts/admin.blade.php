@@ -60,7 +60,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark {{Route::currentRouteName() == 'admin.types.index' ? 'bg-dark text-white' : ''}} " href="{{route('admin.technologies.index')}}">
+                                <a class="nav-link text-dark {{Route::currentRouteName() == 'admin.technologies.index' ? 'bg-dark text-white' : ''}} " href="{{route('admin.technologies.index')}}">
                                     <i class="fa-solid fa-tags"></i>
                                     {{__('Technologies')}}
                                 </a>

@@ -4,10 +4,11 @@
 
 <div class="bg-dark text-light">
     @include('partials.session_message')
-
     <form action="{{route('admin.projects.store')}}" method="post" class="p-4 my-4">
         @csrf
-    
+        
+        <h2 class="pb-2">Add new project</h2>
+
         <div class="mb-4">
             <label for="title" class="form-label">Title</label>
             <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title" aria-describedby="titleHelper">
@@ -27,18 +28,29 @@
             </select>
         </div>
 
-        <div class="form-group">
-            <p>Seleziona i tag:</p>
-            @foreach ($techologies as $technology)
+        <div class="form-group mb-3">
+            <p>Select technologies:</p>
             <div class="form-check @error('techologies') is-invalid @enderror">
+                <div class="row">
+                    <div class="col-md-4">
+                        @foreach ($techologies as $index=> $technology)
     
-                <label class="form-check-label">
-                    <input name="techologies[]" type="checkbox" value="{{ $technology->id }}" class="form-check-input" {{ in_array($technology->id, old('techologies', [])) ? 'checked' : '' }}>
-                    {{ $technology->name }}
-                </label>
+                        <div class="form-check @error('technologies') is-invalid @enderror">
+                            <label class="form-check-label">
+                                <input name="technologies[]" type="checkbox" value="{{ $technology->id }}" class="form-check-input" {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
+                                {{ $technology->name }}
+                            </label>
+                        </div>
+                
+                        @if (($index + 1) % 3 === 0)
+                    </div>
+                    <div class="col-md-4">
+                        @endif
+                        @endforeach
+                    </div>
+                </div>
             </div>
-            @endforeach
-    
+            
             @error('techologies')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
