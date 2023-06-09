@@ -24,12 +24,11 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap py-3 shadow">
             <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Boolfolio </a>
             <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
             <ul class="navbar-nav px-3">
                 <li class="nav-item text-nowrap">
                     <a class="nav-link" href="#">Sign out</a>
@@ -39,31 +38,31 @@
 
         <div class="container-fluid vh-100">
             <div class="row h-100">
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link {{Route::currentRouteName() == 'admin.dashboard' ? 'bg-dark' : ''}}" aria-current="page" href="{{route('admin.dashboard')}}">
+                                <a class="nav-link text-dark {{Route::currentRouteName() == 'admin.dashboard' ? 'bg-dark text-white' : ''}}" aria-current="page" href="{{route('admin.dashboard')}}">
                                     <i class="fa-solid fa-gauge"></i>
                                     {{__('Dashboard')}}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{Route::currentRouteName() == 'admin.projects.index' ? 'bg-dark' : ''}}" href="{{route('admin.projects.index')}}">
+                                <a class="nav-link text-dark  {{Route::currentRouteName() == 'admin.projects.index' ? 'bg-dark text-white' : ''}}" href="{{route('admin.projects.index')}}">
                                     <i class="fa-solid fa-thumbtack"></i>
                                     {{__('Projects')}}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{Route::currentRouteName() == 'admin.types.index' ? 'bg-dark' : ''}}" href="{{route('admin.types.index')}}">
+                                <a class="nav-link text-dark  {{Route::currentRouteName() == 'admin.types.index' ? 'bg-dark text-white' : ''}}" href="{{route('admin.types.index')}}">
                                     <i class="fa-solid fa-bookmark"></i>
                                     {{__('Types')}}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{Route::currentRouteName() == 'admin.types.index' ? 'bg-dark' : ''}} " href="{{route('admin.technologies.index')}}">
+                                <a class="nav-link text-dark {{Route::currentRouteName() == 'admin.types.index' ? 'bg-dark text-white' : ''}} " href="{{route('admin.technologies.index')}}">
                                     <i class="fa-solid fa-tags"></i>
-                                    Technologies
+                                    {{__('Technologies')}}
                                 </a>
                             </li>
 

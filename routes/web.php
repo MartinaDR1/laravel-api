@@ -34,7 +34,7 @@ Route::middleware(['auth','verified'])->prefix('admin')->name('admin.')->group(f
     ]);
 
     Route::resource('technologies', TechnologyController::class)->parameters([
-        'technologies' => 'technologies:slug'
+        'technologies' => 'technology:slug'
     ]);
 });
 

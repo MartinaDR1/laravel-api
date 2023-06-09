@@ -41,7 +41,7 @@
                             <form action="{{route('admin.technologies.destroy', $technology)}}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button technology="submit" class="btn btn-danger">
+                                <button type="submit" class="btn btn-danger">
                                     <i class="fas fa-trash fa-sm fa-fw"></i>
                                 </button>
                             </form>
@@ -49,7 +49,7 @@
                     </tr>
                     @empty
                     <tr class="">
-                        <td scope="row"> Add type </td>
+                        <td scope="row"> Add technology </td>
                     </tr>
 
                     @endforelse

@@ -1,1 +1,15 @@
 @import '~bootstrap/scss/bootstrap';
+
+#sidebarMenu{
+    background-color: rgb(240, 201, 206);
+}
+
+/*-----Dashboard-----*/
+
+.card_projects:hover,
+.card_types:hover,
+.card_technologies:hover{
+    transform: scale(1.1);
+    background-color: rgb(204, 218, 223);
+    border: 1px solid lightseagreen
+}
