@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="card text-white bg-dark my-5" >
-        <img class="card-img-top" src="{{$project->project_image}}" alt="" height="300px">
+        <img class="card-img-top" src="{{ asset ('storage/' . $project->project_image)}}" alt="{{$project->title}}" height="300px">
         <div class="card-body">
             <h4 class="card-title">Title: {{$project->title}}</h4>
             <span class="badge bg-primary">{{$project->type?->name}}</span>

@@ -4,7 +4,7 @@
 
 <div class="bg-dark text-light">
     @include('partials.session_message')
-    <form action="{{route('admin.projects.store')}}" method="post" class="p-4 my-4">
+    <form action="{{route('admin.projects.store')}}" method="post" class="p-4 my-4" enctype="multipart/form-data">
         @csrf
         
         <h2 class="pb-2">Add new project</h2>
@@ -26,6 +26,11 @@
                 <option value="{{$type->id}}" {{ $type->id  == old('type_id', '') ? 'selected' : '' }}>{{$type->name}}</option>
                 @endforeach
             </select>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="project_image" class="form-label">Image</label>
+            <input type="file" class="form-control @error('project_image') is-invalid @enderror" name="project_image" id="project_image" aria-describedby="project_imageHelper" >
         </div>
 
         <div class="form-group mb-3">
@@ -69,7 +74,20 @@
             <label for="duration" class="form-label d-flex">Duration</label>
             <input type="number" name="duration" id="duration">
         </div>
-    
+
+        <div class="mb-4">
+            <div class="row">
+                <div class="col-6">
+                    <label for="project_url" class="form-label">Project url</label>
+                    <input type="url" class="form-control" name="project_url" id="project_url">
+                </div>
+                <div class="col-6">
+                    <label for="project_source_code" class="form-label">Project source code</label>
+                    <input type="url"class="form-control" name="project_source_code" id="project_source_code">
+                </div>
+            </div>
+        </div>
+
         <div class="mb-4">
             <div class="row">
                 <div class="col-6">
@@ -85,7 +103,6 @@
                     <input type="date"class="form-control" name="end_date" id="end_date">
                 </div>
             </div>
-
         </div>
 
     

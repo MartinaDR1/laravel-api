@@ -36,7 +36,7 @@
                 <td scope="row">{{$project->id}}</td>
                 <td>{{$project->title}}</td>
                 <td>
-                    <img src="{{$project->project_image}}" alt="" height="80">
+                    <img src="{{ asset('storage/' . $project->project_image) }}" alt="{{$project->title}}" height="80">
                 </td>
 
                 <td>{{$project->description}}</td>
@@ -46,6 +46,7 @@
                 <td>
                     <a class="text-decoration-none text-success" href="{{route('admin.projects.show', $project)}}" role="button"><i class="fas fa-eye fa-sm fa-fw"></i></a>
                     <a class="text-decoration-none text-warning" href="{{route('admin.projects.edit', $project)}}" role="button"><i class="fas fa-pencil fa-sm fa-fw"></i></a>
+                    
                     @include('partials.modal_delete')
                 </td>
 

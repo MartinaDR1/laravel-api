@@ -5,7 +5,7 @@
 <div class="bg-dark text-light">
     @include('partials.session_message')
 
-    <form action="{{route('admin.projects.update', $project)}}" method="post" class="p-4 my-4">
+    <form action="{{route('admin.projects.update', $project)}}" method="post" enctype="multipart/form-data" class="p-4 my-4">
         @csrf
         @method('PUT')
 
@@ -27,36 +27,31 @@
                 @endforeach
             </select>
         </div>
-        
-        <div class="form-group">
-            <p>Seleziona le tecnologie:</p>
-            @foreach ($techologies as $technology)
-            <div class="form-check @error('technologies') is-invalid @enderror">
-                <label class="form-check-label">
-                    @if($errors->any())
-                    {{-- se ci sono degli errori di validazione
-                    signifca che bisogna recuperare i tag selezionati
-                    tramite la funzione old(),
-                    la quale restituisce un array plain contenente solo gli id --}}
+
+        <div class="form-group mb-3">
+            <p>Select technologies:</p>
+            <div class="form-check @error('techologies') is-invalid @enderror">
+                <div class="row">
+                    <div class="col-md-4">
+                        @foreach ($techologies as $index=> $technology)
     
-                    <input name="technologies[]" type="checkbox" value="{{ $technology->id }}" class="form-check-input" {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
-    
-                    @else
-                    {{-- se non sono presenti errori di validazione
-                    significa che la pagina è appena stata aperta per la prima volta,
-                    perciò bisogna recuperare i tag dalla relazione con il post,
-                    che è una collection di oggetti di tipo Tag	--}}
-    
-                    <input name="technologies[]" type="checkbox" value="{{ $technology->id }}" class="form-check-input" {{ $project->technologies->contains($technology) ? 'checked' : '' }}>
-                    @endif
-    
-    
-                    {{ $technology->name }}
-                </label>
-    
+                        <div class="form-check @error('technologies') is-invalid @enderror">
+                            <label class="form-check-label">
+                                <input name="technologies[]" type="checkbox" value="{{ $technology->id }}" class="form-check-input" {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
+                                {{ $technology->name }}
+                            </label>
+                        </div>
+                
+                        @if (($index + 1) % 3 === 0)
+                    </div>
+                    <div class="col-md-4">
+                        @endif
+                        @endforeach
+                    </div>
+                </div>
             </div>
-            @endforeach
-            @error('technologies')
+            
+            @error('techologies')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
@@ -73,11 +68,11 @@
         <div class="mb-4">
             <div class="row">
                 <div class="col-3">
-                    <img src="{{$project->project_image}}" alt="" height="100">
+                    <img src="{{asset('storage/' . $project->project_image)}}" alt="" height="100">
                 </div>
                 <div class="col-9">
                     <label for="project_image" class="form-label">Image</label>
-                    <input type="text" class="form-control" name="project_image" id="project_image" value="{{ old('project_image') }}">        
+                    <input type="text" class="form-control" name="project_image" id="project_image">        
                 </div>
             </div>
         </div>
@@ -89,11 +84,10 @@
                     <input type="url" class="form-control" name="project_url" id="project_url" value="{{ old('project_url') }}">
                 </div>
                 <div class="col-6">
-                    <label for="project_source_code" class="form-label">Source code</label>
+                    <label for="project_source_code" class="form-label">Source code url</label>
                     <input type="url"class="form-control" name="project_source_code" id="project_source_code" value="{{ old('project_source_code') }}">
                 </div>
             </div>
-
         </div>
 
         <div class="mb-4">
