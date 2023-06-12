@@ -50,8 +50,7 @@ class ProjectController extends Controller
         $val_data['slug'] = $slug;
 
         if ($request->hasFile('project_image')) {
-            $image_path = Storage::put('uploads', $request->project_image);
- 
+            $image_path = Storage::put('uploads', $val_data['project_image']);
             $val_data['project_image'] = $image_path;
         }
 
@@ -108,7 +107,7 @@ class ProjectController extends Controller
                 Storage::delete($project->project_image);
             }
 
-            $image_path = Storage::put('uploads', $request->project_image);
+            $image_path = Storage::put('uploads', $val_data['project_image']);
             //dd($image_path);
             $val_data['project_image'] = $image_path;
         }

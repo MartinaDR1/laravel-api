@@ -47,7 +47,7 @@
                     <a class="text-decoration-none text-success" href="{{route('admin.projects.show', $project)}}" role="button"><i class="fas fa-eye fa-sm fa-fw"></i></a>
                     <a class="text-decoration-none text-warning" href="{{route('admin.projects.edit', $project)}}" role="button"><i class="fas fa-pencil fa-sm fa-fw"></i></a>
                     
-                    @include('partials.modal_delete')
+                    @include('partials.modal_delete' )
                 </td>
 
             </tr>
