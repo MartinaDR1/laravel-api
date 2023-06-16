@@ -25,7 +25,7 @@ class ProjectSeeder extends Seeder
             $project->duration = $faker->dateTimeBetween('-6 month', '+6 month');
             $project->start_date = $faker->date();
             $project->end_date = $faker->date();
-            $project->project_image = 'placeholders/' . $faker->image('storage/app/public/placeholders/', fullPath: false, category: 'Projects', format: 'jpg', word: $project->title, gray: true);
+            $project->project_image = 'placeholders/' . $faker->image('storage/app/public/placeholders/', fullPath: false, format:'jpg', gray: true);
             $project->project_url = $faker->url();
             $project->project_source_code = $faker->url();
 
