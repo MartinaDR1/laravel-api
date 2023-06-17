@@ -71,11 +71,6 @@
         </div>
     
         <div class="mb-4">
-            <label for="duration" class="form-label d-flex">Duration</label>
-            <input type="number" name="duration" id="duration">
-        </div>
-
-        <div class="mb-4">
             <div class="row">
                 <div class="col-6">
                     <label for="project_url" class="form-label">Project url</label>

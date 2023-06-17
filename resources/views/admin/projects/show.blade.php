@@ -9,7 +9,6 @@
             <h4 class="card-title">Title: {{$project->title}}</h4>
             <span class="badge bg-primary">{{$project->type?->name}}</span>
             <p>Description: {{$project->description}}</p>
-            <span>{{$project->duration}}</span>
             <ul>
                 <li>
                     <a href="">{{$project->project_url}}</a>

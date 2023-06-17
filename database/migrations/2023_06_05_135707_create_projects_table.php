@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->text('description');
-            $table->date('duration')->nullable();
             $table->date('start_date');
             $table->date('end_date')->nullable();
             $table->timestamps();

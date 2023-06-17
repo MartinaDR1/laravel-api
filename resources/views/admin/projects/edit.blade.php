@@ -91,11 +91,6 @@
         </div>
 
         <div class="mb-4">
-            <label for="duration" class="form-label d-flex">Duration</label>
-            <input type="number" name="duration" id="duration" value="{{ old('duration', $project->duration) }}">
-        </div>
-    
-        <div class="mb-4">
             <div class="row">
                 <div class="col-6">
                     <label for="start_date" class="form-label">Start-date</label>

@@ -22,7 +22,6 @@ class ProjectSeeder extends Seeder
             $project->title = $faker->sentence(3);
             $project->slug = Str::slug($project->title, '-');
             $project->description = $faker->paragraphs(asText: true); 
-            $project->duration = $faker->dateTimeBetween('-6 month', '+6 month');
             $project->start_date = $faker->date();
             $project->end_date = $faker->date();
             $project->project_image = 'placeholders/' . $faker->image('storage/app/public/placeholders/', fullPath: false, format:'jpg', gray: true);
