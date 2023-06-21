@@ -35,10 +35,10 @@
 
         <div class="form-group mb-3">
             <p>Select technologies:</p>
-            <div class="form-check @error('techologies') is-invalid @enderror">
+            <div class="form-check @error('technologies') is-invalid @enderror">
                 <div class="row">
                     <div class="col-md-4">
-                        @foreach ($techologies as $index=> $technology)
+                        @foreach ($technologies as $index=> $technology)
     
                         <div class="form-check @error('technologies') is-invalid @enderror">
                             <label class="form-check-label">
@@ -95,7 +95,7 @@
                 </div>
                 <div class="col-6">
                     <label for="end_date" class="form-label">End-date</label>
-                    <input type="date"class="form-control" name="end_date" id="end_date">
+                    <input type="date"class="form-control" name="end_date" id="end_date" pattern="yyyy-mm-dd">
                 </div>
             </div>
         </div>

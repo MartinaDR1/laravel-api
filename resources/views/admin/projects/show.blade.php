@@ -9,6 +9,18 @@
             <h4 class="card-title">Title: {{$project->title}}</h4>
             <span class="badge bg-primary">{{$project->type?->name}}</span>
             <p>Description: {{$project->description}}</p>
+            <p>
+                @if ($project->technologies != null)
+                <div class="d-flex align-items-start"><strong class="me-3">Technologies: </strong>
+                    <div class="d-flex justify-content-end w-100 align-items-center gap-3">
+                        @foreach ($project->technologies as $technology)
+                            <div>{{ $technology->name }}</div>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
+            </p>
+
             <ul>
                 <li>
                     <a href="">{{$project->project_url}}</a>

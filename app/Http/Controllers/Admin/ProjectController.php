@@ -31,8 +31,8 @@ class ProjectController extends Controller
     public function create()
     {
         $types = Type::orderByDesc('id')->get();
-        $techologies=Technology::orderByDesc('id')->get();
-        return view('admin.projects.create', compact('types','techologies'));
+        $technologies=Technology::orderByDesc('id')->get();
+        return view('admin.projects.create', compact('types','technologies'));
     }
 
     /**
@@ -56,7 +56,7 @@ class ProjectController extends Controller
 
         $new_project= Project::create($val_data);
 
-        if($request ->has('techologies')){
+        if($request ->has('technologies')){
             $new_project->technologies()->attach($request->technologies);
         };
         return to_route('admin.projects.index')->with('message', 'Project Created Succesfully');
@@ -82,9 +82,9 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $types = Type::orderByDesc('id')->get();
-        $techologies=Technology::orderByDesc('id')->get();
+        $technologies=Technology::orderByDesc('id')->get();
 
-        return view('admin.projects.edit', compact('project', 'types', 'techologies'));
+        return view('admin.projects.edit', compact('project', 'types', 'technologies'));
     }
 
     /**
