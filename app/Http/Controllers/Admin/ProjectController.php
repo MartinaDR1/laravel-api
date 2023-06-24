@@ -53,6 +53,10 @@ class ProjectController extends Controller
             $image_path = Storage::put('uploads', $val_data['project_image']);
             $val_data['project_image'] = $image_path;
         }
+        if ($request->filled('end_date')) {
+            $endDate = date('Y-m-d', strtotime($request->input('end_date')));
+            $val_data['end_date'] = $endDate;
+        }
 
         $new_project= Project::create($val_data);
 

@@ -4,7 +4,8 @@ use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\ProfileController;
-
+use App\Mail\NewLeadMarkdown;
+use App\Models\Lead;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/mailable', function(){
+    $lead= Lead::find(1);
+    return new NewLeadMarkdown($lead);
+});
 
 Route::middleware(['auth','verified'])->prefix('admin')->name('admin.')->group(function(){
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard'); 
